@@ -1,6 +1,6 @@
 /* --- 基本重置和全局变量 --- */
 :root {
-    --primary-color: #008d8b; /* 你的主题色 (绿色) */
+    --primary-color: #0984ff; /* 你的主题色 (绿色) */
     --primary-hover: #007bff; /* 悬停色 */
     --secondary-color: #ffffff; /* 你的背景色 (白色) */
     --text-color: #000000; /* 你的文本颜色 (黑色) */
@@ -214,13 +214,13 @@ img {
 .hero h1 {
     font-size: 3.5rem;
     color: var(--text-color);
-    color: #02542f;
+    color: #0013e4;
 }
 
 .hero h2 {
     font-size: 3.5rem;
     color: var(--text-color);
-    color:#02542f;
+    color:#0013e4;
 }
 
 .hero .subtitle {
@@ -339,7 +339,7 @@ img {
 
 .project-card h4 {
     font-size: 1.50rem;
-    color: #02542f;
+    color: #0800fe;
     padding: 0;
 }
 
@@ -384,17 +384,29 @@ img {
     flex-direction: row-reverse;
 }
 
+/* --- Gallery --- *//* --- Gallery --- */
+/* --- Gallery --- */
+/* --- Gallery --- */
+/* --- Gallery --- */
+
 /* --- Gallery --- */
 .photo-gallery {
     max-width: 100%;
-    padding: 20px 0;
-    text-align: center;
+    padding: 50px 0;
+    text-align: center; /* 让图片部分保持居中（如果有的话），但我们会单独把 H3 移走 */
 }
 
 .photo-gallery h3 {
     margin-bottom: 15px;
     font-size: 24px;
     font-weight: 600;
+    
+    /* 👇 新增这两行 */
+    text-align: left;       /* 强制文字靠左 */
+    padding-left: 5px;      /* 给左边一点空隙，不要贴着屏幕边缘 (你可以调整这个数字，比如 20px 或 5%) */
+    font-weight: bold;
+    text-align: left;
+    
 }
 
 .auto-scroll {
@@ -414,11 +426,85 @@ img {
     border-radius: 12px;
     object-fit: cover;
 }
-
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+
+
+/* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- */
+/* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- */
+/* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- *//* --- Poster Section --- */
+.poster-section {
+    padding: 50px 0;
+    background-color: #ffffff;
+    overflow: hidden; /* 隐藏超出的部分 */
+}
+
+/* --- WORD--- *//* --- WORD--- */
+/* --- WORD--- *//* --- WORD--- */
+.poster-section h3 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 5px;
+    color: #000000;
+}
+
+/* 容器：限制宽度，不显示滚动条 */
+.poster-container {
+    width: 100%;
+    overflow: hidden; 
+    white-space: nowrap; /* 强制不换行 */
+}
+
+/* 轨道：让图片动起来 */
+.poster-track {
+    display: flex;
+    gap: 30px; /* 图片之间的距离 */
+    width: max-content; /* 宽度由内容决定 */
+    
+    /* 👇 自动滚动的动画：20秒跑完一圈，你可以改数字调快慢 */
+    animation: scroll-poster 40s linear infinite;
+}
+
+/* 鼠标放上去时，暂停滚动 (方便别人看清楚细节) */
+.poster-track:hover {
+    animation-play-state: paused;
+}
+
+/* 图片样式 */
+.poster-track img {
+    height: 300px; /* 高度 */
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+/* --- 关键帧动画 --- */
+@keyframes scroll-poster {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 往左移动 50% (因为我们复制了一组图片，所以移到一半刚好接上开头) */
+        transform: translateX(-50%);
+    }
+}
+
+/* --- 手机版响应式 --- */
+@media (max-width: 768px) {
+    .poster-track img {
+        height: 350px; /* 手机上改小一点 */
+        gap: 15px;
+    }
+}
+
+
+
 
 /* --- Footer --- */
 .footer {
