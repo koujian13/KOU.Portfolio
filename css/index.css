@@ -426,6 +426,28 @@ img {
     border-radius: 12px;
     object-fit: cover;
 }
+
+/* --- Gallery 滚动条修改 --- */
+.scroll-track {
+    display: inline-flex;
+    gap: 12px;
+    /* 👇 1. 加速：把原本的 35s 改成 20s (数字越小越快) */
+    animation: scroll 20s linear infinite;
+}
+
+/* 👇 2. 新增：鼠标放上去就暂停 (Hover Pause) */
+.scroll-track:hover {
+    animation-play-state: paused; 
+    cursor: pointer; /* 鼠标变成小手，提示可以停 */
+}
+
+/* 保持原本的 Keyframes 不变 */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
